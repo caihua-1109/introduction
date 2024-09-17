@@ -5,8 +5,8 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: '0.0.0.0', // 设置为 '0.0.0.0' 可以让服务器监听所有 IP 地址上的请求
-    port: 3000,       // 自定义端口号
-    open: 'http://localhost:3000/intro', // 启动时自动打开的 URL
+    // host: '0.0.0.0', // 设置为 '0.0.0.0' 可以让服务器监听所有 IP 地址上的请求
+    port: 3001,       // 自定义端口号
+    // open: 'http://localhost:3001', // 启动时自动打开的 URL
   }
 });

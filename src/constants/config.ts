@@ -50,7 +50,7 @@ export const config: TConfig = {
   },
   contact: {
     p: "联系我们",
-    h2: "接触",
+    h2: "",
     form: {
       name: {
         span: "你的名字",
