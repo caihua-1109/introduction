@@ -36,4 +36,4 @@ jobs:
               docker pull crpi-l4eaw54bzztpe9af.cn-hangzhou.personal.cr.aliyuncs.com/caihuaoo/introduction:latest
               docker stop introduction || true
               docker rm introduction || true
-              docker run -d --name introduction -p 3000:3000  crpi-l4eaw54bzztpe9af.cn-hangzhou.personal.cr.aliyuncs.com/caihuaoo/introduction:latest
+              docker run -d --name introduction -p 3001:3001  crpi-l4eaw54bzztpe9af.cn-hangzhou.personal.cr.aliyuncs.com/caihuaoo/introduction:latest
