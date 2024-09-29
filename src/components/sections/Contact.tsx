@@ -8,6 +8,7 @@ import { slideIn } from '../../utils/motion';
 import { config } from '../../constants/config';
 import { Header } from '../atoms/Header';
 
+import { sendIntroMessage } from '../../service/message';
 const INITIAL_STATE = Object.fromEntries(
   Object.keys(config.contact.form).map(input => [input, ''])
 );
@@ -35,34 +36,42 @@ const Contact = () => {
     if (e === undefined) return;
     e.preventDefault();
     setLoading(true);
+    console.log(form);
 
-    emailjs
-      .send(
-        emailjsConfig.serviceId,
-        emailjsConfig.templateId,
-        {
-          form_name: form.name,
-          to_name: config.html.fullName,
-          from_email: form.email,
-          to_email: config.html.email,
-          message: form.message,
-        },
-        emailjsConfig.accessToken
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert('Thank you. I will get back to you as soon as possible.');
+    sendIntroMessage(form).then(() => {
+      setLoading(false);
+      alert('谢谢你。我会尽快回复你的。');
 
-          setForm(INITIAL_STATE);
-        },
-        error => {
-          setLoading(false);
+      setForm(INITIAL_STATE);
+    });
 
-          console.log(error);
-          alert('Something went wrong.');
-        }
-      );
+    // emailjs
+    //   .send(
+    //     emailjsConfig.serviceId,
+    //     emailjsConfig.templateId,
+    //     {
+    //       form_name: form.name,
+    //       to_name: config.html.fullName,
+    //       from_email: form.email,
+    //       to_email: config.html.email,
+    //       message: form.message,
+    //     },
+    //     emailjsConfig.accessToken
+    //   )
+    //   .then(
+    //     () => {
+    //       setLoading(false);
+    //       alert('Thank you. I will get back to you as soon as possible.');
+
+    //       setForm(INITIAL_STATE);
+    //     },
+    //     error => {
+    //       setLoading(false);
+
+    //       console.log(error);
+    //       alert('Something went wrong.');
+    //     }
+    //   );
   };
 
   return (

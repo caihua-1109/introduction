@@ -21,7 +21,9 @@
     "react-parallax-tilt": "^1.7.212",
     "react-router-dom": "^6.22.1",
     "react-vertical-timeline-component": "^3.6.0",
-    "three": "^0.161.0"
+    "three": "^0.161.0",
+    "axios": "^1.4.0",
+    "qs": "^6.11.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
